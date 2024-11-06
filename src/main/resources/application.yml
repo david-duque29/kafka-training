@@ -4,7 +4,7 @@ spring:
     name: kafka-training
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/develop
+    url: jdbc:postgresql://host.docker.internal:5432/develop
     username: admin
     password: admin123
     driver-class-name: org.postgresql.Driver
@@ -12,7 +12,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   kafka:
 
